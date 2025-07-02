@@ -1,25 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from "react-redux"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+
+import Header from "./components/Header"
+import Body from "./components/Body"
+import MainContainer from "./components/MainContainer"
+import WatchVideo from "./components/WatchVideo"
+import Demo from "./components/Demo"
+import Demo2 from "./components/Demo2"
+
+import appStore from "./utils/appStore"
+
+// createBrowserRouter is used to create a router for the application
+const appRouter = createBrowserRouter([
+    {
+        path: "/",
+        element: <Body />,
+        children: [
+            {
+                path: "/",
+                element: <MainContainer />,
+            },
+            {
+                path: "/watch",
+                element: <WatchVideo />,
+            },
+            {
+                path: "/demo",
+                element: <Demo />,
+            },
+            {
+                path: "/demo2",
+                element: <Demo2 />,
+            },
+        ],
+    },
+])
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    {
+        /**
+         * Header Component
+         * Body Component
+         *     Sidebar Component
+         *       MenuItems Component
+         *     MainContainer Component
+         *       ButtonsList Component
+         *       VideoContainer Component
+         *           VideoCard Component
+         *     watchVideo Component
+         *     Suggestion Component
+         *     Comments Component
+         */
+    }
+    // This is the main App component that renders the Header and Body components
+    return (
+        <Provider store={appStore}>
+            <div className="m-2">
+                {/* <Body /> */}
+                {/* RouterProvider is used to render the application with routing */}
+                <RouterProvider router={appRouter} />
+            </div>
+        </Provider>
+    )
 }
 
-export default App;
+export default App
