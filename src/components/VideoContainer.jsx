@@ -18,7 +18,7 @@ const VideoContainer = () => {
     }
 
     return (
-        <div className="my-5 grid grid-cols-12 gap-4">
+        <div className="my-5 grid grid-cols-12 gap-4 overflow-auto h-[100vh]">
             {videosListData?.items?.map((videoData, index) => (
                 <VideoCard key={videoData?.id} info={videoData} />
             ))}
