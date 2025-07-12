@@ -27,7 +27,7 @@
 
 -   LRU(Least Recently Used) Caching is recommended way for caching the data. It's a caching algorithm that pritorizes data that has been accessed most recently, meaning that when a cache is full, the item that has been unused for the longest time is removed to make the space for new data.
 
-Live chat >>>>>>> infinite scroll >>>>> pagination
+Live chat >>>>> infinite scroll >>> pagination
 
 # Challenges of Live Chat
 
